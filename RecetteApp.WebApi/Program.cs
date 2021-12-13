@@ -1,8 +1,11 @@
 using Microsoft.EntityFrameworkCore;
+using RecetteApp.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
+builder.Services.AddDbContext<RecetteAppContext>(options =>
+	options.UseInMemoryDatabase("RecetteApp"));
 
 var app = builder.Build();
 
